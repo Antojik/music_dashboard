@@ -43,7 +43,7 @@ const App = () => {
             </li>
             <li class="nav-item"  id="createAcc">
               <a class="nav-link" href="#">
-                Create account
+                Create account blabl;abdawrawfwafwafwrfwaf
               </a>
             </li>
             </div>
