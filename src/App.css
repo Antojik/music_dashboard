@@ -41,11 +41,20 @@
   color: red;
 }
 
-#govno 
+#searchIcon 
 {
   border-right: 1px solid #ced4da;
   border-top: 1px solid #ced4da;
   border-bottom: 1px solid #ced4da;
   background-color: white;
 }
+
+.wid {
+  width: 160%;
+}
+
+body {
+  background-color: white;
+}
+
 

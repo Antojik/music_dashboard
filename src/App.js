@@ -1,55 +1,36 @@
-import iconSearch from "./Icons/search.svg";
 import "./App.css";
-import logoSite from "./Icons/LogoSite.png";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
+import Header from "./navbar/Header";
+import SignIn from "./sign_in/SignIn";
+import styled from "styled-components";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
+import Dashboard from "./dashboard/Dashboard";
+
 
 const App = () => {
   return (
     <div className="App">
-      <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">
-            <img src={logoSite} alt="Logo" width="45" />
-          </a>
-          <ul class="navbar-nav container-fluid" >
-          <div style={{display: "flex", width: "50%", justifyContent: "space-between"}}>
-            <li class="nav-item ">
-              <a class="nav-link" href="#">
-                Сайт говна
-              </a>
-            </li>
-            <li class="nav-item ">
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Введите исполнителя или название песни"
-                  width="1000px"
-                />
-                <div class="input-group-append">
-                  <button class="btn btn-light" type="button" id="govno">
-                    <img src={iconSearch}/>
-                  </button>
-                </div>
-              </div>
-            </li>
-            </div>
-            <div style={{display: "flex", width: "50%", justifyContent: "flex-end"}}>
-            <li class="nav-item " id="signIn">
-              <a class="nav-link" href="#" >
-                Sign in
-              </a>
-            </li>
-            <li class="nav-item"  id="createAcc">
-              <a class="nav-link" href="#">
-                Create account blabl;abdawrawfwafwafwrfwaf
-              </a>
-            </li>
-            </div>
-          </ul>
-        </nav>
-      </header>
+      <Router>
+        <Switch>
+          <Route path="/dashboard">
+            <Dashboard/>
+          </Route>
+
+          <Route path="/sign_in">
+            <SignIn/>
+          </Route>
+
+          <Route path="*">
+            <Redirect to="/dashboard" push={true}/>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 };
