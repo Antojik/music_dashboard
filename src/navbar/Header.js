@@ -3,8 +3,8 @@ import NavbarList from "./NavbarList";
 import styled from "styled-components";
 
 const StyledHeader = styled.header`
-  background-color: #9999ff;
-  border-bottom: solid 1px black;
+  background-color: #0e1a2a; //#0e1a2a ;
+  
 
 `
 

@@ -4,11 +4,12 @@ import { useState } from "react";
 const StyledTrackInterface = styled.div`
   display: flex;
   justify-content: space-between;
-  border: ${(props) => (props.mouseHovered ? "2px solid yellow" : "2px solid rgba(0,0,0,0)")};
-  
+  border: ${(props) =>
+    props.mouseHovered ? "2px solid green" : "2px solid rgba(0,0,0,0)"};
 `;
 
 const AlbumName = styled.div`
+  color: white;
   font-weight: bold;
 `;
 
@@ -34,7 +35,7 @@ const SongRightSide = styled.div`
   }
 `;
 
-const MusicTopPattern = () => {
+const MusicTopPattern = ({artistName, songName, image, duration}) => {
   const [mouseHovered, setMouseHovered] = useState(false);
 
   const MouseEntered = () => {
@@ -46,27 +47,25 @@ const MusicTopPattern = () => {
   };
 
   return (
-    <div className="offset-3 col-2" style={{padding: "5px"}}>
-      <StyledTrackInterface
-        onMouseOver={MouseEntered}
-        mouseHovered={mouseHovered}
-        onMouseLeave={MouseLeft}
-      >
-        <SongLeftSide>
-          <AlbumImage
-            src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1b/Joji_-_Nectar.png/220px-Joji_-_Nectar.png"
-            width="50px"
-          />
-          <div>
-            <AlbumName>Nectar</AlbumName>
-            <Artist>Joji</Artist>
-          </div>
-        </SongLeftSide>
-        <SongRightSide>
-          <p>60:25</p>
-        </SongRightSide>
-      </StyledTrackInterface>
-    </div>
+    <StyledTrackInterface
+      onMouseOver={MouseEntered}
+      mouseHovered={mouseHovered}
+      onMouseLeave={MouseLeft}
+    >
+      <SongLeftSide>
+        <AlbumImage
+          src = {image}
+          width="50px"
+        />
+        <div>
+          <AlbumName>{songName}</AlbumName>
+          <Artist>{artistName}</Artist>
+        </div>
+      </SongLeftSide>
+      <SongRightSide>
+        <p>{duration}</p>
+      </SongRightSide>
+    </StyledTrackInterface>
   );
 };
 

@@ -11,15 +11,13 @@ const StyledSignIn = styled.div`
   background-color: black;
   opacity: 0.95;
   z-index: 2;
-  
 `;
 
 const SignInComponent = styled.div`
-  height: 40%;
+  height: 46%;
   margin-top: 40%;
   background-color: #0e1a2a;
   border-radius: 30px;
- 
 
   hr {
     background-color: white;
@@ -34,29 +32,22 @@ const SignInComponent = styled.div`
     padding-top: 5%;
   }
 `;
+
 const LoginInput = styled.div`
-  padding: 2% 5% 2% 5%;
+  padding: 2% 5% 10% 5%;
 `;
+
 const PasswordInput = styled.div`
   padding: 0 5% 3% 5%;
 `;
 
-const ForgotPasswordLink = styled.div`
-  margin-bottom: 3%;
-  a {
-    text-decoration: none;
-    font-size: 13px;
-    color: white;
-    :hover {
-      color: #3aaea9;
-      transition-duration: 0.2s;
-    }
-  }
+const PasswordInputConfirm = styled.div`
+  padding: 0 5% 8% 5%;
 `;
 
 const ButtonContinue = styled.div`
   margin-top: 0%;
-  margin-bottom: 8%;
+  margin-bottom: 10%;
 `;
 
 const SignUpLink = styled.div`
@@ -85,13 +76,13 @@ const StyledInput = styled(Form.Control)`
   border-color: rgba(0,0,0,0);
 `;
 
-const SignIn = () => {
+const CreateAccount = () => {
   return (
     <StyledSignIn className="row">
       <div className="col-md-8 offset-md-2 row">
         <div className="col-md-4 offset-md-7">
           <SignInComponent>
-            <p>Log in</p>
+            <p>Create your account</p>
             <hr />
 
             <LoginInput className="login">
@@ -102,11 +93,9 @@ const SignIn = () => {
               <StyledInput type="password" placeholder="Password" />
             </PasswordInput>
 
-            <ForgotPasswordLink>
-              <a href="#">
-                <b>Forgot your password?</b>
-              </a>
-            </ForgotPasswordLink>
+            <PasswordInputConfirm className="password">
+              <StyledInput type="password" placeholder="Confirm password" />
+            </PasswordInputConfirm>
 
             <ButtonContinue>
               <StyledButton variant="secondary">Continue</StyledButton>
@@ -116,7 +105,7 @@ const SignIn = () => {
 
             <SignUpLink>
               <a href="#">
-                <b>You Don't have an account? Sign up</b>
+                <b>You have an account? Sign in</b>
               </a>
             </SignUpLink>
           </SignInComponent>
@@ -126,4 +115,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default CreateAccount;
