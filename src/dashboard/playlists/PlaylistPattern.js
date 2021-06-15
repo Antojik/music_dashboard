@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const StyledTrackInterface = styled.div`
   display: flex;
-  justify-content: space-between;
+  
   border: ${(props) =>
     props.mouseHovered ? "2px solid green" : "2px solid rgba(0,0,0,0)"};
 `;
@@ -11,6 +11,7 @@ const StyledTrackInterface = styled.div`
 const AlbumName = styled.div`
   color: white;
   font-weight: bold;
+  
 `;
 
 const Artist = styled.div`
@@ -19,23 +20,15 @@ const Artist = styled.div`
 
 const AlbumImage = styled.img`
   margin-right: 15px;
-  border-radius: 35px;
+  //border-radius: 35px;
 `;
 
-const SongLeftSide = styled.div`
-  display: flex;
+const AlbumNameAndArtist = styled.div`
+  padding-top: 4%;
 `;
 
-const SongRightSide = styled.div`
-  display: flex;
-  align-items: center;
-  p {
-    color: grey;
-    margin: unset;
-  }
-`;
 
-const MusicTopPattern = ({artistName, songName, image, duration}) => {
+const PlaylistsPattern = ({ artistName, songName, image }) => {
   const [mouseHovered, setMouseHovered] = useState(false);
 
   const MouseEntered = () => {
@@ -45,28 +38,20 @@ const MusicTopPattern = ({artistName, songName, image, duration}) => {
   const MouseLeft = () => {
     setMouseHovered(false);
   };
-
   return (
     <StyledTrackInterface
       onMouseOver={MouseEntered}
       mouseHovered={mouseHovered}
       onMouseLeave={MouseLeft}
     >
-      <SongLeftSide>
-        <AlbumImage
-          src = {image}
-          width="50px"
-        />
-        <div>
+      
+        <AlbumImage src={image} width="75px" />
+        <AlbumNameAndArtist>
           <AlbumName>{songName}</AlbumName>
           <Artist>{artistName}</Artist>
-        </div>
-      </SongLeftSide>
-      <SongRightSide>
-        <p>{duration}</p>
-      </SongRightSide>
+        </AlbumNameAndArtist>
     </StyledTrackInterface>
   );
 };
 
-export default MusicTopPattern;
+export default PlaylistsPattern;

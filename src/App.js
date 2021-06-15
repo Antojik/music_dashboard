@@ -18,9 +18,8 @@ import Footer from "./default_components/Footer";
 const App = () => {
   return (
     <div className="App row">
-      <LeftBar />
-
-      <div className="col-md-11" style={{ padding: "0" }}>
+      
+      
         <Router>
           <Switch>
             <Route path="/dashboard">
@@ -36,8 +35,7 @@ const App = () => {
             </Route>
           </Switch>
         </Router>
-      </div>
-      <Footer/>
+    
     </div>
   );
 };
